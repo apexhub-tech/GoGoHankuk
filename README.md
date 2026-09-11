@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Go Go Education — multi-page website
 
 Unzip go-go-education-multipage.zip. Upload the entire folder containing index.html to your EXISTING Netlify project's manual deploy area. Include all HTML, CSS, JS and assets files. No build command or installation required. For repository deployment publish `.`.
@@ -17,3 +18,6 @@ Verified: desktop/mobile navigation, pagination, news details, program dialogs, 
 STUDENT PORTAL (portal.html): students sign in with Facebook (or Google) and see their application progress, visa status, document checklist and advisor notes. Staff sign in with the same page and get a dashboard to update every student. Powered by Firebase Authentication + Firestore (free tier). Until Firebase is connected the page runs in preview mode with sample data. Setup steps are at the top of firebase-config.js; security rules are in firestore.rules. Files: portal.html, portal.css, portal.js, firebase-config.js, firestore.rules.
 
 DARK MODE & ANIMATIONS: theme.css holds the dark palette (toggle in the nav, remembered per visitor) and the scroll-reveal animations; both are wired up in app.js.
+=======
+# GoGoHankuk
+>>>>>>> d29b4f2a5b994a241e39334c765622b1c53523ed
