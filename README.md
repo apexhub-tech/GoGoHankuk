@@ -21,3 +21,5 @@ DARK MODE & ANIMATIONS: theme.css holds the dark palette (toggle in the nav, rem
 =======
 # GoGoHankuk
 >>>>>>> d29b4f2a5b994a241e39334c765622b1c53523ed
+
+LANGUAGES: the site is available in English, Myanmar and Korean (switch in the nav; remembered per visitor). Translations live in translations.js — the English text on the page is the key, so to fix a translation find the English sentence there and edit the value. Structured content (hero, programs, benefits, stories, office captions, network) is translated in the "content" section of the same file, matching content.js by position. News articles are English-only; add a "news" array under content to translate them. Burmese/Korean line spacing and fonts are set in theme.css under html[lang="my"] / html[lang="ko"].

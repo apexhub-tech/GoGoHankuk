@@ -3,6 +3,7 @@
    Runs in preview mode with sample data until Firebase is configured. */
 (function(){
 const $=id=>document.getElementById(id);
+const t=(s,v)=>window.t?window.t(s,v):s;
 const FIREBASE_VERSION='10.14.1';
 const CDN=name=>`https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-${name}.js`;
 
@@ -34,21 +35,21 @@ function blankRecord(user){return{name:user.displayName||'Student',email:user.em
 /* ---------------- Student dashboard ---------------- */
 function renderStudent(user,data){
   data=Object.assign(blankRecord(user),data||{});
-  $('user-photo').src=avatar(data.name,data.photo||user.photoURL);$('user-name').textContent=`Hello, ${(data.name||'').split(' ')[0]||'there'}`;$('user-email').textContent=data.email;
+  $('user-photo').src=avatar(data.name,data.photo||user.photoURL);$('user-name').textContent=t('Hello, {name}',{name:(data.name||'').split(' ')[0]||'there'});$('user-email').textContent=data.email;
   const stage=Math.max(0,Math.min(STAGES.length-1,Number(data.stage)||0));const pct=Math.round(stage/(STAGES.length-1)*100);
   $('progress-percent').textContent=pct+'%';$('progress-ring').style.setProperty('--p',pct);
-  $('progress-summary').textContent=stage===STAGES.length-1?'Congratulations — you have completed every step of your journey with us.':`You are at step ${stage+1} of ${STAGES.length}: ${STAGES[stage].label}. Next up: ${STAGES[stage+1].label.toLowerCase()}.`;
-  $('stepper').replaceChildren(...STAGES.map((s,i)=>{const li=document.createElement('li');li.className=i<stage?'done':i===stage?'current':'';li.innerHTML=`<span class="step-dot"></span><div><strong></strong><small></small></div>`;li.querySelector('strong').textContent=s.label;li.querySelector('small').textContent=s.hint;return li;}));
-  $('program-title').textContent=data.program||'Not selected yet';$('program-intake').textContent=data.intake||'—';$('program-institution').textContent=data.institution||'—';$('program-advisor').textContent=data.advisor||'Your Go Go Hankuk advisor';
-  const v=Object.assign({type:'',status:'not-started'},data.visa||{});$('visa-type').textContent=v.type||'Visa not assigned yet';const pill=$('visa-status');pill.textContent=VISA_STATUS[v.status]||v.status;pill.dataset.status=v.status;$('visa-card').dataset.status=v.status;
+  $('progress-summary').textContent=stage===STAGES.length-1?t('Congratulations — you have completed every step of your journey with us.'):t('You are at step {a} of {b}: {stage}. Next up: {next}.',{a:stage+1,b:STAGES.length,stage:t(STAGES[stage].label),next:t(STAGES[stage+1].label)});
+  $('stepper').replaceChildren(...STAGES.map((s,i)=>{const li=document.createElement('li');li.className=i<stage?'done':i===stage?'current':'';li.innerHTML=`<span class="step-dot"></span><div><strong></strong><small></small></div>`;li.querySelector('strong').textContent=t(s.label);li.querySelector('small').textContent=t(s.hint);return li;}));
+  $('program-title').textContent=data.program||t('Not selected yet');$('program-intake').textContent=data.intake||'—';$('program-institution').textContent=data.institution||'—';$('program-advisor').textContent=data.advisor||t('Your Go Go Hankuk advisor');
+  const v=Object.assign({type:'',status:'not-started'},data.visa||{});$('visa-type').textContent=v.type||t('Visa not assigned yet');const pill=$('visa-status');pill.textContent=t(VISA_STATUS[v.status]||v.status);pill.dataset.status=v.status;$('visa-card').dataset.status=v.status;
   $('visa-appointment').textContent=v.appointment||'—';$('visa-submitted').textContent=v.submitted||'—';$('visa-note').textContent=v.note||'';$('visa-note').hidden=!v.note;
-  const docs=data.documents||[];const received=docs.filter(d=>d.status==='received').length;$('docs-count').textContent=docs.length?`${received} of ${docs.length} received`:'';
-  $('doc-list').replaceChildren(...docs.map(d=>{const li=document.createElement('li');li.dataset.status=d.status;li.innerHTML=`<span class="doc-mark"></span><span class="doc-name"></span><span class="doc-status"></span>`;li.querySelector('.doc-name').textContent=d.name;li.querySelector('.doc-status').textContent=DOC_STATUS[d.status]||d.status;return li;}));
-  if(!docs.length)$('doc-list').innerHTML='<li class="empty">Your advisor will add your document checklist soon.</li>';
+  const docs=data.documents||[];const received=docs.filter(d=>d.status==='received').length;$('docs-count').textContent=docs.length?t('{a} of {b} received',{a:received,b:docs.length}):'';
+  $('doc-list').replaceChildren(...docs.map(d=>{const li=document.createElement('li');li.dataset.status=d.status;li.innerHTML=`<span class="doc-mark"></span><span class="doc-name"></span><span class="doc-status"></span>`;li.querySelector('.doc-name').textContent=d.name;li.querySelector('.doc-status').textContent=t(DOC_STATUS[d.status]||d.status);return li;}));
+  if(!docs.length){const li=document.createElement('li');li.className='empty';li.textContent=t('Your advisor will add your document checklist soon.');$('doc-list').replaceChildren(li);}
   const notes=[...(data.notes||[])].sort((a,b)=>new Date(b.date)-new Date(a.date));
   $('note-list').replaceChildren(...notes.map(n=>{const li=document.createElement('li');li.innerHTML=`<time></time><p></p>`;li.querySelector('time').textContent=fmtDate(n.date);li.querySelector('p').textContent=n.text;return li;}));
-  if(!notes.length)$('note-list').innerHTML='<li class="empty">No updates yet — your advisor will post notes here as your application moves forward.</li>';
-  $('portal-updated').textContent=data.updatedAt?`Last updated ${fmtDate(data.updatedAt)}`:'';
+  if(!notes.length){const li=document.createElement('li');li.className='empty';li.textContent=t('No updates yet — your advisor will post notes here as your application moves forward.');$('note-list').replaceChildren(li);}
+  $('portal-updated').textContent=data.updatedAt?t('Last updated {date}',{date:fmtDate(data.updatedAt)}):'';
 }
 $('message-advisor').addEventListener('click',()=>{const email=site.contact&&site.contact.email;if(email)location.href=`mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent('Question about my application')}`;else if(window.showDetails)showDetails('CONTACT','Message your advisor','Add the agency email address in content.js (contact.email) to enable this button. Until then, please contact your advisor directly.',false);});
 
@@ -65,13 +66,13 @@ function selectStudent(id){
   selectedId=id;const s=students.find(x=>x.id===id);if(!s)return;draft=JSON.parse(JSON.stringify(s));
   $('admin-editor').hidden=false;$('admin-empty').hidden=true;renderAdminList($('admin-search').value);
   $('edit-photo').src=avatar(s.name,s.photo);$('edit-name').textContent=s.name;$('edit-email').textContent=s.email;
-  $('f-stage').replaceChildren(...STAGES.map((st,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${i+1}. ${st.label}`;return o;}));$('f-stage').value=Number(s.stage)||0;
+  $('f-stage').replaceChildren(...STAGES.map((st,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${i+1}. ${t(st.label)}`;return o;}));$('f-stage').value=Number(s.stage)||0;
   $('program-options').replaceChildren(...((site.programs||[]).map(p=>{const o=document.createElement('option');o.value=p.title;return o;})));
   $('f-program').value=s.program||'';$('f-institution').value=s.institution||'';$('f-intake').value=s.intake||'';$('f-advisor').value=s.advisor||'';
   const v=s.visa||{};$('f-visa-type').value=v.type||'';$('f-visa-status').value=v.status||'not-started';$('f-visa-appointment').value=v.appointment||'';$('f-visa-submitted').value=v.submitted||'';$('f-visa-note').value=v.note||'';
   draft.documents=draft.documents||[];draft.notes=draft.notes||[];renderEditDocs();renderEditNotes();$('f-status').textContent='';
 }
-function renderEditDocs(){$('f-docs').replaceChildren(...draft.documents.map((d,i)=>{const li=document.createElement('li');li.innerHTML=`<span class="doc-name"></span><select></select><button type="button" class="icon-btn" aria-label="Remove document">×</button>`;li.querySelector('.doc-name').textContent=d.name;const sel=li.querySelector('select');sel.replaceChildren(...Object.entries(DOC_STATUS).map(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=l;return o;}));sel.value=d.status||'missing';sel.addEventListener('change',()=>{draft.documents[i].status=sel.value;});li.querySelector('button').addEventListener('click',()=>{draft.documents.splice(i,1);renderEditDocs();});return li;}));}
+function renderEditDocs(){$('f-docs').replaceChildren(...draft.documents.map((d,i)=>{const li=document.createElement('li');li.innerHTML=`<span class="doc-name"></span><select></select><button type="button" class="icon-btn" aria-label="Remove document">×</button>`;li.querySelector('.doc-name').textContent=d.name;const sel=li.querySelector('select');sel.replaceChildren(...Object.entries(DOC_STATUS).map(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=t(l);return o;}));sel.value=d.status||'missing';sel.addEventListener('change',()=>{draft.documents[i].status=sel.value;});li.querySelector('button').addEventListener('click',()=>{draft.documents.splice(i,1);renderEditDocs();});return li;}));}
 function renderEditNotes(){$('f-notes').replaceChildren(...[...draft.notes].map((n,i)=>{const li=document.createElement('li');li.innerHTML=`<time></time><p></p><button type="button" class="icon-btn" aria-label="Remove note">×</button>`;li.querySelector('time').textContent=fmtDate(n.date);li.querySelector('p').textContent=n.text;li.querySelector('button').addEventListener('click',()=>{draft.notes.splice(i,1);renderEditNotes();});return li;}).reverse());}
 $('f-doc-add').addEventListener('click',()=>{const v=$('f-doc-new').value.trim();if(!v)return;draft.documents.push({name:v,status:'missing'});$('f-doc-new').value='';renderEditDocs();});
 $('f-note-add').addEventListener('click',()=>{const v=$('f-note-new').value.trim();if(!v)return;draft.notes.push({text:v,date:new Date().toISOString()});$('f-note-new').value='';renderEditNotes();});

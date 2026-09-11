@@ -55,3 +55,37 @@
   .hero-copy[data-reveal]{transform:translateY(48px)}
   [data-reveal].in{opacity:1;transform:none}
 }
+
+/* ---------- Language switch (EN / မြန်မာ / 한국어) — injected into the nav by i18n.js ---------- */
+.lang-switch{display:flex;align-items:center;gap:2px;background:#ffffff1f;border-radius:999px;padding:3px;margin-left:6px}
+.lang-switch button{border:0;background:transparent;color:#fff;font:inherit;font-size:13px;line-height:1;padding:7px 11px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.lang-switch button:hover{background:#ffffff2e}
+.lang-switch button[aria-current="true"]{background:#fff;color:#087fb8;font-weight:600}
+[data-theme="dark"] .lang-switch button[aria-current="true"]{color:#0b5f8a}
+@media(max-width:760px){.lang-switch{margin:8px 0 0;align-self:flex-start;background:var(--sky)}.lang-switch button{color:var(--ink);font-size:14px;padding:9px 14px}.lang-switch button[aria-current="true"]{background:#0094DF;color:#fff}}
+
+/* ---------- Myanmar (Burmese) typography: Burmese script needs taller lines and no tight tracking ---------- */
+html[lang="my"] body,html[lang="my"] button,html[lang="my"] input,html[lang="my"] select,html[lang="my"] h1,html[lang="my"] h2,html[lang="my"] h3,html[lang="my"] blockquote,html[lang="my"] .about-stats strong,html[lang="my"] .leader-name,html[lang="my"] .vmv-statement{font-family:'Noto Sans Myanmar','Pyidaungsu','Myanmar Text','Padauk',sans-serif}
+html[lang="my"] body{line-height:2.1}
+html[lang="my"] p,html[lang="my"] li,html[lang="my"] dd,html[lang="my"] dt,html[lang="my"] small,html[lang="my"] blockquote,html[lang="my"] .description,html[lang="my"] .intro,html[lang="my"] .meta,html[lang="my"] .about-lead,html[lang="my"] .vmv-list li,html[lang="my"] #dialog-body{line-height:2.2}
+html[lang="my"] h1,html[lang="my"] h2,html[lang="my"] h3{line-height:1.7;letter-spacing:0}
+html[lang="my"] .hero-copy,html[lang="ko"] .hero-copy{top:8%;padding:clamp(28px,4vw,64px) 3vw 40px}
+html[lang="my"] .hero h1{white-space:normal;font-size:clamp(30px,3.4vw,58px);line-height:1.5;margin-bottom:16px}
+html[lang="my"] .hero .intro{font-size:clamp(18px,1.9vw,32px);line-height:1.7}
+@media(max-width:760px){html[lang="my"] .hero-copy,html[lang="ko"] .hero-copy{top:200px}}
+html[lang="my"] .eyebrow,html[lang="my"] .visa-badge,html[lang="my"] .status-pill,html[lang="my"] .aside-label,html[lang="my"] .value-icon,html[lang="my"] .doc-status,html[lang="my"] .network-badge,html[lang="my"] .leader-role,html[lang="my"] .leader-sign strong,html[lang="my"] .about-stats span,html[lang="my"] .note-list time{letter-spacing:.4px;line-height:1.9;text-transform:none}
+html[lang="my"] .about-copy h1,html[lang="my"] .login-card h1{letter-spacing:0;line-height:1.5}
+html[lang="my"] .vmv-statement,html[lang="my"] .leader-quote,html[lang="my"] .story-art p{line-height:1.9;letter-spacing:0}
+html[lang="my"] .stepper strong,html[lang="my"] .values-grid h3,html[lang="my"] .program-card h3,html[lang="my"] .news-card h3{line-height:1.8}
+html[lang="my"] nav,html[lang="my"] .school-header nav{font-size:17px}
+html[lang="my"] .school-header nav a{padding-top:2px}
+html[lang="my"] .button,html[lang="my"] .login-btn,html[lang="my"] .text-link{line-height:1.8}
+html[lang="my"] .section-heading>p{line-height:2}
+html[lang="my"] .mission-list li,html[lang="my"] .doc-list li,html[lang="my"] .kv div{padding-top:6px;padding-bottom:6px}
+
+/* ---------- Korean typography ---------- */
+html[lang="ko"] body,html[lang="ko"] button,html[lang="ko"] input,html[lang="ko"] select,html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3,html[lang="ko"] blockquote{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif}
+html[lang="ko"] body{line-height:1.8;word-break:keep-all}
+html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3{letter-spacing:-.5px;line-height:1.35}
+html[lang="ko"] .hero h1{white-space:normal;letter-spacing:-1px}
+html[lang="ko"] .eyebrow{letter-spacing:1px}

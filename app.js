@@ -3,6 +3,7 @@ const newsItems = data.news;
 const articleSlug = n => n.slug || n.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const articleUrl = n => 'article.html?slug=' + encodeURIComponent(articleSlug(n));
 const $ = id => document.getElementById(id);
+const t = (s,v) => window.t ? window.t(s,v) : s;
 const params = new URLSearchParams(location.search);
 if ($('news-list')) {
   const size = Number.isInteger(data.newsPageSize) && data.newsPageSize > 0 ? data.newsPageSize : 2;
@@ -18,9 +19,9 @@ if ($('news-list')) {
     const meta=document.createElement('p');meta.className='meta';meta.textContent=n.meta;card.append(photoLink,tag,h,meta);$('news-list').append(card);
   });
   if(!newsItems.length) $('news-list').textContent='News will be published here soon.';
-  for (const [label,destination] of [['← Previous',current>1?current-1:null],[`Page ${current} of ${total}`,null],['Next →',current<total?current+1:null]]) {
+  for (const [label,destination,isCounter] of [[t('← Previous'),current>1?current-1:null,false],[t('Page {a} of {b}',{a:current,b:total}),null,true],[t('Next →'),current<total?current+1:null,false]]) {
     const el=document.createElement(destination?'a':'span');el.textContent=label;
-    if(destination)el.href='news.html?page='+destination;else if(label.startsWith('Page'))el.setAttribute('aria-current','page');else el.setAttribute('aria-disabled','true');
+    if(destination)el.href='news.html?page='+destination;else if(isCounter)el.setAttribute('aria-current','page');else el.setAttribute('aria-disabled','true');
     $('pagination').append(el);
   }
   document.title=`News — Page ${current} | Go Go Education`;
@@ -28,7 +29,7 @@ if ($('news-list')) {
 if ($('article-content')) {
   const article=newsItems.find(n=>articleSlug(n)===params.get('slug'));
   const area=$('article-content');const h=document.createElement('h1');h.textContent=article?article.title:'Article not found';area.append(h);
-  if(article){document.title=article.title+' | Go Go Education';document.querySelector('meta[name="description"]').content=article.body.slice(0,160);const meta=document.createElement('p');meta.className='meta';meta.textContent=article.tag+' · '+article.meta;area.append(meta);article.body.split(/\n\s*\n/).forEach(text=>{const p=document.createElement('p');p.textContent=text;area.append(p);});}
+  if(article){document.title=article.title+' | Go Go Education';document.querySelector('meta[name="description"]').content=article.body.slice(0,160);const meta=document.createElement('p');meta.className='meta';meta.textContent=article.tag+' · '+article.meta;area.append(meta);if(window.CURRENT_LANG&&window.CURRENT_LANG!=='en'){const n=document.createElement('p');n.className='meta lang-note';n.textContent=t('This article is currently available in English only.');area.append(n);}article.body.split(/\n\s*\n/).forEach(text=>{const p=document.createElement('p');p.textContent=text;area.append(p);});}
   else {const p=document.createElement('p');p.textContent='This article is unavailable. Browse the news list for current stories.';area.append(p);}
   const back=document.createElement('a');back.href='news.html';back.className='article-back';back.textContent='← Back to News';area.append(back);
 }
@@ -90,11 +91,11 @@ if($('network-list') && Array.isArray(data.network)) data.network.forEach((d,i)=
 const menu=document.querySelector('.menu-toggle');const nav=$('navigation');function closeMenu(){menu.setAttribute('aria-expanded','false');nav.classList.remove('open');}menu.addEventListener('click',()=>{const expanded=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!expanded));nav.classList.toggle('open',!expanded);});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 $('consultation')?.addEventListener('click',()=>{if(data.contact.email){window.location.href=`mailto:${encodeURIComponent(data.contact.email)}?subject=${encodeURIComponent('Education consultation enquiry')}`;}else{showDetails('CONTACT SETUP PENDING','Let’s plan your next chapter','This preview is ready for your agency’s contact details. Add your real email address in content.js to enable enquiries. No message has been sent.',false);}});
 
-$('search-open').addEventListener('click',()=>{showDetails('FIND YOUR PATHWAY','Search programs','',false);const input=document.createElement('input');input.type='search';input.placeholder='Search programs…';input.setAttribute('aria-label','Search programs');input.className='search-input';const results=document.createElement('div');function render(){results.replaceChildren();const matches=data.programs.filter(p=>(p.title+' '+p.description).toLowerCase().includes(input.value.toLowerCase()));matches.forEach(p=>{const b=document.createElement('button');b.className='search-result';b.textContent=p.title+' ↗';b.onclick=()=>showDetails(p.tag,p.title,p.details);results.append(b);});if(!matches.length)results.textContent='No programs found. Try English, foundation, or study.';}input.addEventListener('input',render);$('dialog-body').append(input,results);render();input.focus();});
+$('search-open').addEventListener('click',()=>{showDetails(t('FIND YOUR PATHWAY'),t('Search programs'),'',false);const input=document.createElement('input');input.type='search';input.placeholder=t('Search programs…');input.setAttribute('aria-label',t('Search programs'));input.className='search-input';const results=document.createElement('div');function render(){results.replaceChildren();const matches=data.programs.filter(p=>(p.title+' '+p.description).toLowerCase().includes(input.value.toLowerCase()));matches.forEach(p=>{const b=document.createElement('button');b.className='search-result';b.textContent=p.title+' ↗';b.onclick=()=>showDetails(p.tag,p.title,p.details);results.append(b);});if(!matches.length)results.textContent=t('No programs found. Try Korean, bachelor or visa.');}input.addEventListener('input',render);$('dialog-body').append(input,results);render();input.focus();});
 
 // ---- Dark mode toggle ----
 const themeBtn=$('theme-toggle');
-function applyTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}if(themeBtn)themeBtn.setAttribute('aria-label',t==='dark'?'Switch to light mode':'Switch to dark mode');}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}if(themeBtn)themeBtn.setAttribute('aria-label',window.t?window.t(t==='dark'?'Switch to light mode':'Switch to dark mode'):(t==='dark'?'Switch to light mode':'Switch to dark mode'));}
 applyTheme(document.documentElement.getAttribute('data-theme')||'light');
 themeBtn?.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
 
