@@ -1,0 +1,267 @@
+window.SITE_CONTENT = {
+  "brand": "Go Go Hankuk",
+  "hero": {
+    "title": "Study in Korea",
+    "description": "Your future begins with<br>Go Go Hankuk",
+    "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85"
+  },
+  "whyImage": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1000&q=85",
+  "aboutImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=85",
+  "contact": {
+    "email": "gogohankukedu@gmail.com",
+    "note": "+95 9 42100 2577 · Yangon, Myanmar"
+  },
+  "programs": [
+    {
+      "number": "01",
+      "tag": "KOREAN LANGUAGE",
+      "title": "Korea Language Program",
+      "image": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=800&q=80",
+      "visa": "D-4-1 Visa",
+      "meta": "University language institutes · 6 months to 2 years",
+      "symbol": "한",
+      "description": "Learn Korean at a university language institute and build the foundation for degree study or work in Korea.",
+      "details": "The D-4-1 (General Trainee) visa is for students enrolled in a Korean language course at a university-affiliated language institute. Courses are typically organised in 10-week terms across six levels, from beginner to advanced, with classes in speaking, listening, reading and writing.\n\nThis is the most common first step for students who plan to progress to a bachelor’s or master’s degree in Korea, since many universities accept TOPIK results or completion of a language institute level for admission. Students may also apply for part-time work permission after a qualifying period of study.\n\nOur advisors help you choose an institute, prepare the admission and visa documents, and plan accommodation and arrival. Tuition, intake dates and requirements vary by institute and are confirmed during your consultation."
+    },
+    {
+      "number": "02",
+      "tag": "ENGLISH LANGUAGE",
+      "title": "English Language Program",
+      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+      "visa": "D-4-7 Visa",
+      "meta": "Foreign language training in Korea",
+      "symbol": "Aa",
+      "description": "Study English in Korea through a foreign-language training program while experiencing Korean campus life.",
+      "details": "The D-4-7 (Foreign Language Trainee) visa is issued to students who enrol in a foreign-language course, such as English, at an approved institution in Korea. It allows you to improve your English in an international environment while living and studying on a Korean campus.\n\nThe program suits students who want to strengthen their academic English before moving on to an English-taught degree in Korea or another destination, or who wish to combine English study with cultural experience in Korea.\n\nWe guide you through institution selection, enrolment, the visa application and pre-departure preparation. Course length, fees and entry requirements are confirmed with the institution."
+    },
+    {
+      "number": "03",
+      "tag": "UNDERGRADUATE",
+      "title": "Bachelor Program",
+      "image": "https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=800&q=80",
+      "visa": "D-2-2 Visa",
+      "symbol": "◎",
+      "meta": "4-year degree · Korean or English-taught",
+      "description": "Earn a bachelor’s degree at a Korean university in Korean- or English-taught majors.",
+      "details": "The D-2-2 visa covers full-time bachelor’s degree study at a Korean university. Programs generally take four years and are offered in a wide range of majors, including business, engineering, IT, design, hospitality and the humanities. Many universities offer English-taught tracks alongside Korean-medium programs.\n\nAdmission usually requires high-school completion, a TOPIK or English proficiency result depending on the language of instruction, and supporting documents such as transcripts, a study plan and financial proof. Scholarships based on language ability or academic results are common.\n\nOur team helps you shortlist universities, prepare a strong application and study plan, and manage the visa process from start to finish. Requirements and tuition differ by university and are confirmed during consultation."
+    },
+    {
+      "number": "04",
+      "tag": "COLLEGE DIPLOMA",
+      "title": "2 Years College Program",
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80",
+      "visa": "D-2-1 Visa",
+      "symbol": "↗",
+      "meta": "Associate degree · Practical, career-focused study",
+      "description": "Complete a practical two-year associate degree at a Korean college with strong industry links.",
+      "details": "The D-2-1 visa is for associate (junior college) degree study, usually two to three years in length. Korean colleges focus on hands-on, career-oriented training in fields such as hotel management, culinary arts, beauty, automotive, IT, nursing support, tourism and business.\n\nThese programs are a popular route for students who want a shorter, skills-focused qualification with clear employment pathways, or who plan to transfer into a bachelor’s degree afterwards.\n\nWe help you compare colleges and majors, meet the language and document requirements, and complete the admission and visa steps. Tuition, intake dates and eligibility vary by college."
+    },
+    {
+      "number": "05",
+      "tag": "POSTGRADUATE",
+      "title": "Master Program",
+      "image": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80",
+      "visa": "D-2-3 Visa",
+      "symbol": "M",
+      "meta": "Master’s degree · Research and coursework programs",
+      "description": "Advance your career with a master’s degree from a Korean graduate school.",
+      "details": "The D-2-3 visa is for master’s degree study at a Korean graduate school. Programs typically take two years and are available in both Korean- and English-taught formats across business, engineering, science, education, international studies and more.\n\nApplicants normally need a recognised bachelor’s degree, a language proficiency result appropriate to the program, academic references and a research or study plan. Graduate scholarships, research assistantships and university funding are often available to international students.\n\nOur advisors support you in identifying suitable programs and supervisors, preparing your application and documents, and handling the visa process. Requirements and funding differ by university."
+    },
+    {
+      "number": "06",
+      "tag": "REGIONAL PATHWAY",
+      "title": "Metropolitan Visa Program",
+      "image": "https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80",
+      "visa": "D-2-1 Visa",
+      "symbol": "⌂",
+      "meta": "Associate degree · Seoul metropolitan area colleges",
+      "description": "A college pathway focused on institutions in the Seoul metropolitan area under the D-2-1 visa category.",
+      "details": "The Metropolitan Visa Program is a D-2-1 associate-degree route focused on colleges in and around the Seoul metropolitan area, giving students access to the capital region’s campuses, part-time work opportunities and employer networks while completing a practical two-year qualification.\n\nThe program is designed for students who want to study close to Seoul with a clear, well-supported admission process. Available majors, participating colleges and conditions are updated each intake.\n\nSpeak with our advisors for the current list of participating institutions, eligibility criteria, tuition and intake dates."
+    },
+    {
+      "number": "07",
+      "tag": "INTERNATIONAL PATHWAY",
+      "title": "Malaysia to Korea & UK Program",
+      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
+      "visa": "Pathway program",
+      "symbol": "⇄",
+      "meta": "Study in Malaysia first · Progress to Korea or the UK",
+      "description": "Begin your studies in Malaysia, then progress to a degree in Korea or the United Kingdom.",
+      "details": "This pathway lets students start with a foundation, English or diploma program at a partner institution in Malaysia, then transfer to a university in South Korea or the United Kingdom to complete their degree.\n\nStarting in Malaysia offers lower initial costs, English-medium teaching and a smoother transition to international study, while the partnership structure gives a clear route to progression once academic and language conditions are met.\n\nOur team explains the available routes, entry conditions and total study costs, and coordinates your applications with partner institutions in Malaysia, Korea and the UK. Progression depends on each institution’s requirements and your results."
+    },
+    {
+      "number": "08",
+      "tag": "INTERNATIONAL PATHWAY",
+      "title": "Thailand to Korea Program",
+      "image": "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80",
+      "visa": "Pathway program",
+      "symbol": "⇄",
+      "meta": "Study in Thailand first · Progress to Korea",
+      "description": "Start your journey at a partner institution in Thailand and continue to a Korean university.",
+      "details": "The Thailand to Korea Program is a two-stage pathway: students first complete a preparatory or language program at a partner institution in Thailand, then progress to a Korean language institute, college or university.\n\nThe route suits students who want to build language skills and academic readiness in a nearby, affordable location before moving to Korea, with guidance at every step of the transition.\n\nOur advisors outline the current partner institutions, conditions for progression, and the visa steps for each stage. Details are confirmed during your consultation."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Guidance built around you",
+      "text": "Your interests, your budget, your pace. A plan that starts with listening."
+    },
+    {
+      "title": "Clarity at every step",
+      "text": "Understand your choices, documents, and timelines before you move forward."
+    },
+    {
+      "title": "Support beyond the application",
+      "text": "From choosing a course to preparing for arrival, know what comes next."
+    }
+  ],
+  "stories": [
+    {
+      "quote": "A big dream felt much more achievable once I could see the steps in front of me.",
+      "name": "From exploring options to preparing an application",
+      "detail": "A sample undergraduate journey"
+    },
+    {
+      "quote": "Comparing courses around my interests helped me see what I really wanted to study.",
+      "name": "From uncertainty to a clearer direction",
+      "detail": "A sample course-selection journey"
+    },
+    {
+      "quote": "A steady study plan helped me approach my English preparation with more confidence.",
+      "name": "From a target score to a weekly learning plan",
+      "detail": "A sample language-learning journey"
+    }
+  ],
+  "office": [
+    {
+      "image": "assets/office/office-1.webp",
+      "caption": "Our office building in downtown Yangon"
+    },
+    {
+      "image": "assets/office/office-2.webp",
+      "caption": "Student counselling room"
+    },
+    {
+      "image": "assets/office/office-3.webp",
+      "caption": "Meeting room"
+    },
+    {
+      "image": "assets/office/office-4.jpg",
+      "caption": "Classroom"
+    },
+    {
+      "image": "assets/office/office-5.jpg",
+      "caption": "Study lounge"
+    },
+    {
+      "image": "assets/office/office-6.webp",
+      "caption": "Consultation space"
+    },
+    {
+      "image": "assets/office/office-7.webp",
+      "caption": "Our advisory team at work"
+    },
+    {
+      "image": "assets/office/office-8.jpg",
+      "caption": "Programme resources and partner materials"
+    }
+  ],
+  "network": [
+    {
+      "name": "South Korea",
+      "note": "Universities, language institutes & pathway programs",
+      "image": "https://images.unsplash.com/photo-1546874177-9e664107314e?auto=format&fit=crop&w=900&q=80",
+      "featured": true
+    },
+    {
+      "name": "Malaysia",
+      "note": "Universities & colleges",
+      "image": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "name": "Thailand",
+      "note": "Universities & international programs",
+      "image": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "name": "Other emerging global destinations",
+      "note": "Expanding partnerships worldwide",
+      "image": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=900&q=80"
+    }
+  ],
+  "newsPageSize": 6,
+  "news": [
+    {
+      "slug": "october-2026-korean-visa-online-booking",
+      "tag": "VISA UPDATE",
+      "title": "Korean Visa Online Booking Schedule — October 2026",
+      "image": "assets/october2026-booking.png",
+      "meta": "October 2026 applications · Booking schedule",
+      "body": "The following online booking periods apply to Korean visa applications scheduled for October 2026. Each booking window corresponds to a visa application submission period shown below.\n\nBOOKING WINDOW 1\nOnline booking: 4 September 2026 (Friday), 10:00 – 9 September 2026 (Wednesday), 16:00.\nVisa application submission: 1 October 2026 (Thursday) – 8 October 2026 (Thursday).\n\nBOOKING WINDOW 2\nOnline booking: 11 September 2026 (Friday), 14:00 – 16 September 2026 (Wednesday), 16:00.\nVisa application submission: 12 October 2026 (Monday) – 20 October 2026 (Tuesday).\n\nBOOKING WINDOW 3\nOnline booking: 18 September 2026 (Friday), 14:00 – 22 September 2026 (Tuesday), 16:00.\nVisa application submission: 21 October 2026 (Wednesday) – 30 October 2026 (Friday).\n\nSource: The October 2026 online booking notice shared by Go Go Hankuk. Times are reproduced as shown; no timezone was specified."
+    },
+    {
+      "slug": "topik-2026-test-dates",
+      "tag": "TOPIK",
+      "title": "TOPIK 2026: full test calendar and how to register from Myanmar",
+      "image": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=800&q=80",
+      "meta": "Updated September 2026 · 3 min read",
+      "body": "TOPIK (Test of Proficiency in Korean) is the qualification most Korean universities and language institutes use to assess your Korean level, and a higher level also unlocks more part-time work hours once you are in Korea. Here is the 2026 schedule announced by the National Institute for International Education (NIIED).\n\nPaper-based test (PBT): 104th – 11 January (Korea only); 105th – 11–12 April; 106th – 17 May; 107th – 4–5 July; 108th – 17–18 October; 109th – 15 November. Overseas registration windows close roughly two months before each test — for example 4–10 August for the October sitting and 1–7 September for the November sitting.\n\nInternet-based test (IBT): 11th – 28 February (Korea only); 12th – 21 March; 13th – 13 June; 14th – 12 September; 15th – 24 October; 16th – 28 November. IBT sittings are being offered in more countries each year.\n\nRegistering from Myanmar: overseas registration is handled through the local host institution rather than the Korean website, and dates and seat numbers vary by country. Check the Korean Embassy in Yangon and the Korean Cultural Centre announcements as soon as a registration window opens, because seats fill quickly. The 2027 calendar is usually published in November or December.\n\nNeed a study plan? Our Korean language program advisors can help you set a target level and prepare in time for your university intake.\n\nSources: NIIED / TOPIK official schedule; Korea JoongAng Daily, November 2025."
+    },
+    {
+      "slug": "d-4-1-visa-checklist-myanmar",
+      "tag": "STUDY GUIDE",
+      "title": "D-4-1 Korean language visa: what Myanmar students need to prepare",
+      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+      "meta": "August 2026 · 5 min read",
+      "body": "The D-4-1 visa is the standard route for students who want to learn Korean at a university language institute before moving on to a degree. The process is straightforward when you plan ahead — most students should allow two to three months from application to departure.\n\nStep 1 – Admission: apply to a university-affiliated Korean language institute and receive your Certificate of Admission (CoA). Institutes usually run four intakes a year (March, June, September and December) and each level takes about ten weeks.\n\nStep 2 – Documents: a valid passport, the CoA, your high-school graduation certificate and transcripts, a study plan, passport photos, and proof of finances. Institutes and the embassy generally expect a bank balance of around USD 7,000–10,000 in the student’s or a parent’s name, held for a specified period. Some institutes also ask for a family relationship certificate or a sponsor letter.\n\nStep 3 – Visa application: complete the application online at visa.mofa.go.kr, then submit the printed form and documents in person at the VFS Global Visa Application Centre in Yangon, where your fingerprints and photo are taken. Embassy processing normally takes two to four weeks, so apply as soon as your CoA arrives.\n\nAfter arrival: register for your Residence Card within 90 days, and remember that part-time work is only permitted after six months of study and with a permit from immigration.\n\nEvery institute has slightly different requirements and fees. Book a consultation and we will prepare a document checklist for the institute you choose."
+    },
+    {
+      "slug": "gks-scholarship-2026-2027",
+      "tag": "SCHOLARSHIPS",
+      "title": "Global Korea Scholarship: what the 2026 round tells us about applying for 2027",
+      "image": "https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=800&q=80",
+      "meta": "July 2026 · 4 min read",
+      "body": "The Global Korea Scholarship (GKS) is the Korean government’s fully funded scholarship for international students, and Myanmar is an eligible country. For 2026 the programme invited 2,000 graduate students and 280 undergraduate and associate-degree students — 150 through the Embassy Track and 130 through the University Track.\n\nWhat it covers: full tuition, a one-year Korean language course before your degree, a monthly living allowance, round-trip airfare, a settlement grant on arrival, health insurance, and a bonus for students who achieve a high TOPIK level.\n\nHow it works: applicants choose either the Embassy Track (applying through the Korean Embassy in Yangon) or the University Track (applying directly to one designated university). The 2026 graduate round accepted applications from 12 to 25 February through the Study in Korea website, and the undergraduate round is normally announced in the autumn of the year before entry.\n\nGetting ready for 2027: strong academic results, a clear study plan, good recommendation letters and a TOPIK or English proficiency score all strengthen an application. Because the Embassy Track is limited to a small number of places per country, starting early matters. Our advisors can review your profile and help you decide which track and universities to target.\n\nSources: Embassy of the Republic of Korea in Myanmar; Study in Korea (studyinkorea.go.kr) GKS notices, 2026."
+    },
+    {
+      "slug": "study-korea-300k-milestone",
+      "tag": "NEWS",
+      "title": "Korea passes 250,000 international students on the road to “Study Korea 300K”",
+      "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+      "meta": "June 2026 · 3 min read",
+      "body": "Korea hosted 253,434 international students in 2025, the highest number on record and well on the way to the government’s target of 300,000 students by 2027 under the Study Korea 300K plan.\n\nThe plan is behind many of the changes students are seeing on the ground: more English-taught degree programmes, a growing list of universities certified by the Ministry of Education (which enjoy simpler visa screening for their students), expanded regional scholarships, and stronger links between colleges and employers outside Seoul.\n\nFor students from Southeast Asia, the practical effect is more choice. Regional universities and technical colleges are actively recruiting, often with lower tuition and living costs than the capital, and pathway programs that combine language study with a degree are becoming more common.\n\nGo Go Hankuk works with universities, colleges and language institutes across Korea. If you are weighing Seoul against a regional city, or a language course against a direct degree entry, talk to us about the options that match your budget and goals.\n\nSource: Korean Ministry of Education statistics reported in 2026 study-in-Korea guides."
+    },
+    {
+      "slug": "thailand-korea-pathway-2026",
+      "tag": "PATHWAYS",
+      "title": "Thailand as a stepping stone to Korea: Korean is now Thailand’s No. 2 foreign language",
+      "image": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=800&q=80",
+      "meta": "April 2026 · 3 min read",
+      "body": "Interest in Korea is growing fast in Thailand. Korean has become the second most popular foreign language on the Thai university entrance test, and Thai universities are expanding Korean-language and Korea-focused programmes in response.\n\nIn April 2026 Chulalongkorn University in Bangkok held a Career Pathway Promotion Program with Korean companies, bringing together government agencies and Korean businesses to offer internships, recruitment and career preparation to Korean-language students — a sign of how closely education and employment links between the two countries are developing.\n\nWhy this matters for Myanmar students: Thailand is nearby, affordable and has a well-developed international education sector. Our Thailand to Korea Program lets students begin with a preparatory or language course at a partner institution in Thailand, then progress to a language institute, college or university in Korea once academic and language conditions are met — building confidence and skills before the bigger move.\n\nAsk our advisors for the current partner institutions, progression conditions and the visa steps for each stage of the pathway.\n\nSources: Korea.net; Chulalongkorn University news, April 2026."
+    },
+    {
+      "slug": "study-abroad-five-questions",
+      "tag": "STUDY GUIDE",
+      "title": "Your study-abroad journey starts with five questions",
+      "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+      "meta": "4 min read",
+      "body": "Start with what you want to study and why. Then think about where you would feel comfortable living, what you can budget for tuition and daily life, when you hope to begin, and which entry requirements you need to meet. Bring these five answers to an advisor so your first conversation has a clear starting point."
+    },
+    {
+      "slug": "prepare-your-application",
+      "tag": "APPLICATION TIPS",
+      "title": "A calmer way to prepare your university application",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+      "meta": "3 min read",
+      "body": "Make one checklist for each university. Record official deadlines and document requirements, allow time for references and translations, and keep copies of everything you submit. Review the university’s own instructions before applying; requirements can differ between courses and intakes."
+    },
+    {
+      "slug": "next-chapter-sessions",
+      "tag": "EVENTS & CONVERSATIONS",
+      "title": "Let’s talk about your next chapter",
+      "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80",
+      "meta": "Upcoming sessions · Dates to be announced",
+      "body": "This is the space for agency open days, information sessions, and workshops. Confirmed dates and registration details will be published here when available. In the meantime, prepare your questions about courses, destinations, budgets, and application timelines."
+    }
+  ]
+};
