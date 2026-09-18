@@ -5,7 +5,6 @@ const articleUrl = n => 'article.html?slug=' + encodeURIComponent(articleSlug(n)
 const $ = id => document.getElementById(id);
 const t = (s,v) => window.t ? window.t(s,v) : s;
 const params = new URLSearchParams(location.search);
-<<<<<<< HEAD
 const IMPACT_ICONS = {
   students: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-5.5"/><path d="M22 8v6"/></svg>',
   universities: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg>',
@@ -18,8 +17,6 @@ if ($('impact-stats') && Array.isArray(data.impact)) {
     $('impact-stats').append(li);
   });
 }
-=======
->>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 if ($('news-list')) {
   const size = Number.isInteger(data.newsPageSize) && data.newsPageSize > 0 ? data.newsPageSize : 2;
   const total = Math.max(1, Math.ceil(newsItems.length / size));
@@ -59,7 +56,6 @@ $('year').textContent = new Date().getFullYear();
 const dialog = $('detail-dialog');
 function showDetails(label, title, body, cta = true) {
   $('dialog-label').textContent = label; $('dialog-title').textContent = title;
-<<<<<<< HEAD
   $('dialog-body').replaceChildren(...String(body).split(/\n\s*\n/).filter(Boolean).map(t=>{const p=document.createElement('p');p.textContent=t;return p;})); $('dialog-cta').hidden = !cta; $('dialog-cta').textContent='Talk about your next step ↗'; $('dialog-cta').onclick=null; dialog.showModal();
 }
 // ---- Book a consultation (Figma: Consultation appointment — form) ----
@@ -90,6 +86,20 @@ function buildAppointmentDialog(){
   d.querySelector('#appointment-form').addEventListener('submit', e => {
     e.preventDefault();
     const f = new FormData(e.target);
+    const appt = {
+      id: 'SITE-' + Date.now(),
+      student: f.get('name'), phone: f.get('phone'),
+      date: f.get('date') || '', dateSort: f.get('date') || '', time: f.get('time') || '',
+      topic: f.get('topic'), meetingType: f.get('meeting'),
+      location: /online|phone/i.test(f.get('meeting')) ? 'Online' : 'Office',
+      counsellor: 'Unassigned', status: 'pending', message: f.get('message') || '',
+    };
+    if (window.GGH_CMS) {
+      const shared = window.GGH_CMS.read();
+      const appointments = Array.isArray(shared.appointments) ? shared.appointments.slice() : [];
+      appointments.unshift(appt);
+      window.GGH_CMS.write({ appointments: appointments });
+    }
     const lines = [`Name: ${f.get('name')}`,`Phone: ${f.get('phone')}`,`Topic: ${f.get('topic')}`,`Meeting type: ${f.get('meeting')}`,`Preferred date: ${f.get('date')||'—'}`,`Preferred time (MMT): ${f.get('time')||'—'}`,`Message: ${f.get('message')||'—'}`].join('\n');
     if(data.contact.email){ window.location.href = `mailto:${encodeURIComponent(data.contact.email)}?subject=${encodeURIComponent('Consultation appointment request')}&body=${encodeURIComponent(lines)}`; }
     d.close(); e.target.reset();
@@ -100,10 +110,6 @@ function buildAppointmentDialog(){
 }
 function openAppointment(){ buildAppointmentDialog().showModal(); }
 document.addEventListener('click', e => { const trigger = e.target.closest('.js-appointment'); if(trigger){ e.preventDefault(); openAppointment(); } });
-=======
-  $('dialog-body').replaceChildren(...String(body).split(/\n\s*\n/).filter(Boolean).map(t=>{const p=document.createElement('p');p.textContent=t;return p;})); $('dialog-cta').hidden = !cta; dialog.showModal();
-}
->>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 document.querySelector('.close-dialog').addEventListener('click', () => dialog.close());
 $('dialog-cta').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', e => { if(e.target === dialog) {const r=dialog.getBoundingClientRect(); if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
@@ -120,10 +126,15 @@ if($('benefit-list')) data.benefits.forEach((b,i)=>{const el=document.createElem
 let story=0;
 function renderStory(){const s=data.stories[story];$('story-quote').textContent=`“${s.quote}”`;$('story-name').textContent=`${s.name} · ${s.detail}`;$('story-counter').textContent=`${String(story+1).padStart(2,'0')} / ${String(data.stories.length).padStart(2,'0')}`;}
 $('story-prev')?.addEventListener('click',()=>{story=(story-1+data.stories.length)%data.stories.length;renderStory();});$('story-next')?.addEventListener('click',()=>{story=(story+1)%data.stories.length;renderStory();});if($('story-quote')) renderStory();
-<<<<<<< HEAD
+if($('team-carousel') && Array.isArray(data.team)) {
+  data.team.forEach(m => {
+    const li = document.createElement('li');
+    li.innerHTML = `<div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Staff photo</span></div><strong></strong><span class="team-role"></span>`;
+    li.querySelector('strong').textContent = m.name; li.querySelector('.team-role').textContent = m.role;
+    $('team-carousel').append(li);
+  });
+}
 if($('team-carousel')){const step=()=>$('team-carousel').firstElementChild.getBoundingClientRect().width+20;$('team-prev')?.addEventListener('click',()=>$('team-carousel').scrollBy({left:-step(),behavior:'smooth'}));$('team-next')?.addEventListener('click',()=>$('team-carousel').scrollBy({left:step(),behavior:'smooth'}));}
-=======
->>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 if($('office-slider') && Array.isArray(data.office) && data.office.length){
   const photos=data.office;let slide=0,timer;
   const track=$('office-track'),dots=$('office-dots'),grid=$('office-grid'),slider=$('office-slider');
@@ -149,7 +160,6 @@ if($('network-list') && Array.isArray(data.network)) data.network.forEach((d,i)=
   body.append(n,h,p);if(d.featured){const b=document.createElement('span');b.className='network-badge';b.textContent='Primary destination';li.append(b);}
   li.append(img,body);$('network-list').append(li);
 });
-<<<<<<< HEAD
 function showUniversity(u){
   $('dialog-label').textContent='';
   $('dialog-title').textContent=u.name;
@@ -179,8 +189,6 @@ if($('programs-tabs')){
   showTab('programs');
 }
 $('enquire-korean')?.addEventListener('click',()=>{if(data.contact.email){window.location.href=`mailto:${encodeURIComponent(data.contact.email)}?subject=${encodeURIComponent('Korean language class enquiry')}`;}else{showDetails('CONTACT SETUP PENDING','Let’s plan your next chapter','This preview is ready for your agency’s contact details. Add your real email address in content.js to enable enquiries. No message has been sent.',false);}});
-=======
->>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 // News list and detail rendering is below.
 const menu=document.querySelector('.menu-toggle');const nav=$('navigation');function closeMenu(){menu.setAttribute('aria-expanded','false');nav.classList.remove('open');}menu.addEventListener('click',()=>{const expanded=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!expanded));nav.classList.toggle('open',!expanded);});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 $('consultation')?.addEventListener('click',()=>{if(data.contact.email){window.location.href=`mailto:${encodeURIComponent(data.contact.email)}?subject=${encodeURIComponent('Education consultation enquiry')}`;}else{showDetails('CONTACT SETUP PENDING','Let’s plan your next chapter','This preview is ready for your agency’s contact details. Add your real email address in content.js to enable enquiries. No message has been sent.',false);}});
@@ -194,11 +202,7 @@ applyTheme(document.documentElement.getAttribute('data-theme')||'light');
 themeBtn?.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
 
 // ---- Scroll reveal (fade + slide up, staggered per group) ----
-<<<<<<< HEAD
 const revealGroups=['.hero-copy','.section-heading','.network-intro>*','.about-media','.about-copy','.vmv-card','.values-grid>li','.leader','.office-layout','.network-card','.why-photo','.why-copy','.program-card','.news-card','.story-layout','.contact>*','.document-page>*','#article-content>*','.footer-main>*','.impact-stats>li','.team-carousel>li','.video-cards>li','.agency-card','.class-grid>article','.university-card'];
-=======
-const revealGroups=['.hero-copy','.section-heading','.network-intro>*','.about-media','.about-copy','.vmv-card','.values-grid>li','.leader','.office-layout','.network-card','.why-photo','.why-copy','.program-card','.news-card','.story-layout','.contact>*','.document-page>*','#article-content>*','.footer-main>*'];
->>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
   revealGroups.forEach(sel=>{const byParent=new Map();document.querySelectorAll(sel).forEach(el=>{if(el.hasAttribute('data-reveal'))return;const list=byParent.get(el.parentElement)||[];list.push(el);byParent.set(el.parentElement,list);});
     byParent.forEach(list=>list.forEach((el,i)=>{el.setAttribute('data-reveal',el.matches('.program-card,.news-card,.values-grid>li,.network-card')?'scale':'');el.style.setProperty('--d',`${Math.min(i,6)*0.12}s`);}));});
