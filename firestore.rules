@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Staff: any signed-in user who has a document at admins/<their uid>.
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // One record per student, keyed by their Firebase user id.
+    match /students/{uid} {
+      // A student can read their own record; staff can read (and list) everyone.
+      allow read: if request.auth != null && (request.auth.uid == uid || isAdmin());
+      // A student creates their own record on first login (name, email, photo only).
+      allow create: if request.auth != null && request.auth.uid == uid;
+      // Only staff can change progress, visa status, documents and notes.
+      allow update, delete: if isAdmin();
+    }
+
+    // Admin flags are managed in the Firebase console, never from the website.
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+  }
+}

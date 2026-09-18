@@ -1,0 +1,106 @@
+/* ---------- Dark mode ----------
+   The active theme is stored on <html data-theme="light|dark"> (set by the toggle in the nav,
+   remembered in the browser, defaults to the visitor's system preference). */
+:root[data-theme="dark"]{color-scheme:dark;--ink:#e8f1f7;--muted:#a3b7c5;--line:#233a4b;--sky:#123146;--blue:#2ea7ea;--bg:#0d1a24;--bg-alt:#0f2230;--surface:#132433;--surface-2:#18303f}
+[data-theme="dark"] body,[data-theme="dark"] header,[data-theme="dark"] .school-header,[data-theme="dark"] .network,[data-theme="dark"] .leadership,[data-theme="dark"] .skip{background:var(--bg)}
+[data-theme="dark"] .school-header nav,[data-theme="dark"] .mobile-bar{background:#0b5f8a}
+[data-theme="dark"] .menu-toggle,[data-theme="dark"] .story-controls button,[data-theme="dark"] .search-result,[data-theme="dark"] .search-input,[data-theme="dark"] dialog{background:var(--surface);color:var(--ink);border-color:var(--line)}
+[data-theme="dark"] .hero{background:var(--bg-alt)}
+[data-theme="dark"] .impact{background:var(--bg-alt)}
+[data-theme="dark"] .team,[data-theme="dark"] .story-video,[data-theme="dark"] .agencies,[data-theme="dark"] .korean-classes{background:var(--bg-alt)}
+[data-theme="dark"] .checklist>li{background:var(--surface);border-color:var(--line)}
+[data-theme="dark"] .checklist-note{background:#2ea7ea22;color:#5cc0f5}
+[data-theme="dark"] #appointment-form input,[data-theme="dark"] #appointment-form select,[data-theme="dark"] #appointment-form textarea{background:var(--surface);color:var(--ink);border-color:var(--line)}
+[data-theme="dark"] .tabs{border-color:var(--line)}
+[data-theme="dark"] .tabs button[aria-current="page"]{background:var(--surface-2)}
+[data-theme="dark"] .class-grid article,[data-theme="dark"] .university-card{background:var(--surface);border-color:var(--line)}
+[data-theme="dark"] .uni-count{background:var(--surface-2)}
+[data-theme="dark"] .team-photo{background:var(--surface-2)}
+[data-theme="dark"] .agency-card{background:var(--surface);border-color:var(--line)}
+[data-theme="dark"] .agency-logo{border-color:var(--line)}
+[data-theme="dark"] .agency-highlight{background:#2ea7ea22;color:#5cc0f5}
+[data-theme="dark"] .agency-body>p:not(.eyebrow):not(.agency-highlight),[data-theme="dark"] .story-video h2,[data-theme="dark"] .story-video>p,[data-theme="dark"] .agencies h2,[data-theme="dark"] .agency-body h3,[data-theme="dark"] .video-cards h3{color:var(--ink)}
+[data-theme="dark"] .agencies>p{color:var(--muted)}
+[data-theme="dark"] .team-controls button{background:transparent}
+[data-theme="dark"] .document-page,[data-theme="dark"] .office,[data-theme="dark"] .vmv-mission,[data-theme="dark"] .why,[data-theme="dark"] .story-content{background:var(--bg-alt)}
+[data-theme="dark"] .about-intro{background:linear-gradient(180deg,var(--bg-alt),var(--bg))}
+[data-theme="dark"] .leader{background:linear-gradient(180deg,var(--surface),var(--bg-alt))}
+[data-theme="dark"] .leader-alt{background:linear-gradient(180deg,var(--bg-alt),var(--surface))}
+[data-theme="dark"] .values-grid li,[data-theme="dark"] .program-card,[data-theme="dark"] .news-card,[data-theme="dark"] .story-layout{background:var(--surface);border-color:var(--line)}
+[data-theme="dark"] .program-card:nth-child(3n+2){background:var(--surface-2)}
+[data-theme="dark"] .story-art{background:#163a52}
+[data-theme="dark"] .contact{background:#123146}
+[data-theme="dark"] .contact-arrow{color:#1f5a7d}
+[data-theme="dark"] .office-grid button{background:var(--surface-2)}
+[data-theme="dark"] .about-badge,[data-theme="dark"] .network-badge{box-shadow:none}
+[data-theme="dark"] .about-media img,[data-theme="dark"] .office-slider,[data-theme="dark"] .why-photo{box-shadow:0 30px 60px -30px #00000099}
+[data-theme="dark"] .leader-photo img{filter:drop-shadow(0 30px 40px #00000080)}
+[data-theme="dark"] .about-lead,[data-theme="dark"] .leader-quote,[data-theme="dark"] .vmv-list li,[data-theme="dark"] .news-card button,[data-theme="dark"] .text-link{color:var(--ink)}
+[data-theme="dark"] .visa-badge,[data-theme="dark"] .value-icon{background:#2ea7ea22;color:#5cc0f5}
+[data-theme="dark"] .about-copy h1 em,[data-theme="dark"] .about-stats strong,[data-theme="dark"] .leader-role{color:#5cc0f5}
+[data-theme="dark"] .about-media:before{background:#2ea7ea22}
+[data-theme="dark"] .web-banner{background:#fff;filter:brightness(.92)}
+[data-theme="dark"] .hero-actions .button{background:#e8f1f7;border-color:#e8f1f7}
+[data-theme="dark"] dialog::backdrop{background:#02080dcc}
+[data-theme="dark"] .close-dialog{color:var(--ink)}
+[data-theme="dark"] .school-header nav a:hover{color:#fff}
+
+/* ---------- Theme toggle button (in the nav) ---------- */
+.theme-toggle{display:flex;align-items:center;justify-content:center;width:45px;height:45px;border:0;background:transparent;color:#fff;padding:10px;border-radius:50%;cursor:pointer;transition:background .2s}
+.theme-toggle:hover{background:#ffffff24}
+.theme-toggle svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme-toggle .icon-sun{display:none}
+[data-theme="dark"] .theme-toggle .icon-sun{display:block}
+[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+@media(max-width:760px){.theme-toggle,.nav-search{width:auto;justify-content:flex-start;gap:10px;border-radius:6px;padding:8px 6px}.theme-toggle:after{content:'Toggle dark mode';font-size:14px;color:var(--ink)}[data-theme="dark"] .theme-toggle:after{content:'Toggle light mode'}}
+
+/* ---------- Scroll reveal animations ----------
+   Elements tagged with data-reveal (done automatically in app.js) slide up and fade in
+   when they enter the viewport, with a staggered delay for siblings. app.js removes the
+   attribute once the reveal has finished so hover effects keep their own faster timing. */
+@media(prefers-reduced-motion:no-preference){
+  .school-header nav a{transition:transform .25s,color .2s}
+  .school-header nav a:hover{transform:translateY(-2px)}
+  .program-card,.news-card{transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s}
+  .program-card:hover,.news-card:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px #0b3a5a66}
+  [data-theme="dark"] .program-card:hover,[data-theme="dark"] .news-card:hover{box-shadow:0 30px 50px -30px #00000099}
+  .about-stats strong{font-variant-numeric:tabular-nums}
+  [data-reveal]{opacity:0;transform:translateY(64px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s);will-change:opacity,transform}
+  [data-reveal="scale"]{transform:translateY(40px) scale(.96)}
+  .hero-copy[data-reveal]{transform:translateY(48px)}
+  [data-reveal].in{opacity:1;transform:none}
+}
+
+/* ---------- Language switch (EN / မြန်မာ / 한국어) — injected into the nav by i18n.js ---------- */
+.lang-switch{display:flex;align-items:center;gap:2px;background:#ffffff1f;border-radius:999px;padding:3px;margin-left:6px}
+.lang-switch button{border:0;background:transparent;color:#fff;font:inherit;font-size:13px;line-height:1;padding:7px 11px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.lang-switch button:hover{background:#ffffff2e}
+.lang-switch button[aria-current="true"]{background:#fff;color:#087fbc;font-weight:600}
+[data-theme="dark"] .lang-switch button[aria-current="true"]{color:#0b5f8a}
+@media(max-width:760px){.lang-switch{margin:8px 0 0;align-self:flex-start;background:var(--sky)}.lang-switch button{color:var(--ink);font-size:14px;padding:9px 14px}.lang-switch button[aria-current="true"]{background:#0094DF;color:#fff}}
+
+/* ---------- Myanmar (Burmese) typography: Burmese script needs taller lines and no tight tracking ---------- */
+html[lang="my"] body,html[lang="my"] button,html[lang="my"] input,html[lang="my"] select,html[lang="my"] h1,html[lang="my"] h2,html[lang="my"] h3,html[lang="my"] blockquote,html[lang="my"] .about-stats strong,html[lang="my"] .leader-name,html[lang="my"] .vmv-statement{font-family:'Noto Sans Myanmar','Pyidaungsu','Myanmar Text','Padauk',sans-serif}
+html[lang="my"] body{line-height:2.1}
+html[lang="my"] p,html[lang="my"] li,html[lang="my"] dd,html[lang="my"] dt,html[lang="my"] small,html[lang="my"] blockquote,html[lang="my"] .description,html[lang="my"] .intro,html[lang="my"] .meta,html[lang="my"] .about-lead,html[lang="my"] .vmv-list li,html[lang="my"] #dialog-body{line-height:2.2}
+html[lang="my"] h1,html[lang="my"] h2,html[lang="my"] h3{line-height:1.7;letter-spacing:0}
+html[lang="my"] .hero-copy,html[lang="ko"] .hero-copy{top:8%;padding:clamp(28px,4vw,64px) 3vw 40px}
+html[lang="my"] .hero h1{white-space:normal;font-size:clamp(30px,3.4vw,58px);line-height:1.5;margin-bottom:16px}
+html[lang="my"] .hero .intro{font-size:clamp(18px,1.9vw,32px);line-height:1.7}
+@media(max-width:760px){html[lang="my"] .hero-copy,html[lang="ko"] .hero-copy{top:200px}}
+html[lang="my"] .eyebrow,html[lang="my"] .visa-badge,html[lang="my"] .status-pill,html[lang="my"] .aside-label,html[lang="my"] .value-icon,html[lang="my"] .doc-status,html[lang="my"] .network-badge,html[lang="my"] .leader-role,html[lang="my"] .leader-sign strong,html[lang="my"] .about-stats span,html[lang="my"] .note-list time{letter-spacing:.4px;line-height:1.9;text-transform:none}
+html[lang="my"] .about-copy h1,html[lang="my"] .login-card h1{letter-spacing:0;line-height:1.5}
+html[lang="my"] .vmv-statement,html[lang="my"] .leader-quote,html[lang="my"] .story-art p{line-height:1.9;letter-spacing:0}
+html[lang="my"] .stepper strong,html[lang="my"] .values-grid h3,html[lang="my"] .program-card h3,html[lang="my"] .news-card h3{line-height:1.8}
+html[lang="my"] nav,html[lang="my"] .school-header nav{font-size:17px}
+html[lang="my"] .school-header nav a{padding-top:2px}
+html[lang="my"] .button,html[lang="my"] .login-btn,html[lang="my"] .text-link{line-height:1.8}
+html[lang="my"] .section-heading>p{line-height:2}
+html[lang="my"] .mission-list li,html[lang="my"] .doc-list li,html[lang="my"] .kv div{padding-top:6px;padding-bottom:6px}
+
+/* ---------- Korean typography ---------- */
+html[lang="ko"] body,html[lang="ko"] button,html[lang="ko"] input,html[lang="ko"] select,html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3,html[lang="ko"] blockquote{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif}
+html[lang="ko"] body{line-height:1.8;word-break:keep-all}
+html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3{letter-spacing:-.5px;line-height:1.35}
+html[lang="ko"] .hero h1{white-space:normal;letter-spacing:-1px}
+html[lang="ko"] .eyebrow{letter-spacing:1px}
