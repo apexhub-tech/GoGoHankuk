@@ -6,3 +6,21 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Proxy the admin dashboard (a separate Netlify site/repo) under /admin/ so the
+# browser sees it as this same origin. The dashboard<->site test bridge
+# (cms-bridge.js) uses localStorage, which is scoped per-origin — without this,
+# the two deployed sites can never share data no matter what browser/device is
+# used. Status 200 = proxy/rewrite (content served, URL stays /admin/...), not
+# a redirect. Swap this out once the real Firestore backend replaces the bridge.
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "https://gogohankukdashboard.netlify.app/:splat"
+  status = 200
+  force = true
