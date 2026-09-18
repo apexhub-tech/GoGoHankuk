@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 # Go Go Hankuk — multi-page website
+=======
+<<<<<<< HEAD
+# Go Go Education — multi-page website
+>>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 
 Unzip go-go-education-multipage.zip. Upload the entire folder containing index.html to your EXISTING Netlify project's manual deploy area. Include all HTML, CSS, JS and assets files. No build command or installation required. For repository deployment publish `.`.
 
@@ -17,5 +22,11 @@ Verified: desktop/mobile navigation, pagination, news details, program dialogs, 
 STUDENT PORTAL (portal.html): students sign in with Facebook (or Google) and see their application progress, visa status, document checklist and advisor notes. Staff sign in with the same page and get a dashboard to update every student. Powered by Firebase Authentication + Firestore (free tier). Until Firebase is connected the page runs in preview mode with sample data. Setup steps are at the top of firebase-config.js; security rules are in firestore.rules. Files: portal.html, portal.css, portal.js, firebase-config.js, firestore.rules.
 
 DARK MODE & ANIMATIONS: theme.css holds the dark palette (toggle in the nav, remembered per visitor) and the scroll-reveal animations; both are wired up in app.js.
+<<<<<<< HEAD
+=======
+=======
+# GoGoHankuk
+>>>>>>> d29b4f2a5b994a241e39334c765622b1c53523ed
+>>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 
 LANGUAGES: the site is available in English, Myanmar and Korean (switch in the nav; remembered per visitor). Translations live in translations.js — the English text on the page is the key, so to fix a translation find the English sentence there and edit the value. Structured content (hero, programs, benefits, stories, office captions, network) is translated in the "content" section of the same file, matching content.js by position. News articles are English-only; add a "news" array under content to translate them. Burmese/Korean line spacing and fonts are set in theme.css under html[lang="my"] / html[lang="ko"].

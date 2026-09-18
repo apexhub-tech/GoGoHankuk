@@ -6,6 +6,7 @@
 [data-theme="dark"] .school-header nav,[data-theme="dark"] .mobile-bar{background:#0b5f8a}
 [data-theme="dark"] .menu-toggle,[data-theme="dark"] .story-controls button,[data-theme="dark"] .search-result,[data-theme="dark"] .search-input,[data-theme="dark"] dialog{background:var(--surface);color:var(--ink);border-color:var(--line)}
 [data-theme="dark"] .hero{background:var(--bg-alt)}
+<<<<<<< HEAD
 [data-theme="dark"] .impact{background:var(--bg-alt)}
 [data-theme="dark"] .team,[data-theme="dark"] .story-video,[data-theme="dark"] .agencies,[data-theme="dark"] .korean-classes{background:var(--bg-alt)}
 [data-theme="dark"] .checklist>li{background:var(--surface);border-color:var(--line)}
@@ -22,6 +23,8 @@
 [data-theme="dark"] .agency-body>p:not(.eyebrow):not(.agency-highlight),[data-theme="dark"] .story-video h2,[data-theme="dark"] .story-video>p,[data-theme="dark"] .agencies h2,[data-theme="dark"] .agency-body h3,[data-theme="dark"] .video-cards h3{color:var(--ink)}
 [data-theme="dark"] .agencies>p{color:var(--muted)}
 [data-theme="dark"] .team-controls button{background:transparent}
+=======
+>>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 [data-theme="dark"] .document-page,[data-theme="dark"] .office,[data-theme="dark"] .vmv-mission,[data-theme="dark"] .why,[data-theme="dark"] .story-content{background:var(--bg-alt)}
 [data-theme="dark"] .about-intro{background:linear-gradient(180deg,var(--bg-alt),var(--bg))}
 [data-theme="dark"] .leader{background:linear-gradient(180deg,var(--surface),var(--bg-alt))}
@@ -43,6 +46,10 @@
 [data-theme="dark"] .hero-actions .button{background:#e8f1f7;border-color:#e8f1f7}
 [data-theme="dark"] dialog::backdrop{background:#02080dcc}
 [data-theme="dark"] .close-dialog{color:var(--ink)}
+<<<<<<< HEAD
+=======
+[data-theme="dark"] .footer-bottom,[data-theme="dark"] .footer-main>p{color:var(--muted)}
+>>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 [data-theme="dark"] .school-header nav a:hover{color:#fff}
 
 /* ---------- Theme toggle button (in the nav) ---------- */
@@ -75,7 +82,11 @@
 .lang-switch{display:flex;align-items:center;gap:2px;background:#ffffff1f;border-radius:999px;padding:3px;margin-left:6px}
 .lang-switch button{border:0;background:transparent;color:#fff;font:inherit;font-size:13px;line-height:1;padding:7px 11px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
 .lang-switch button:hover{background:#ffffff2e}
+<<<<<<< HEAD
 .lang-switch button[aria-current="true"]{background:#fff;color:#087fbc;font-weight:600}
+=======
+.lang-switch button[aria-current="true"]{background:#fff;color:#087fb8;font-weight:600}
+>>>>>>> b172e33699dfa4c357cbfc439230308bd1d08ec3
 [data-theme="dark"] .lang-switch button[aria-current="true"]{color:#0b5f8a}
 @media(max-width:760px){.lang-switch{margin:8px 0 0;align-self:flex-start;background:var(--sky)}.lang-switch button{color:var(--ink);font-size:14px;padding:9px 14px}.lang-switch button[aria-current="true"]{background:#0094DF;color:#fff}}
 
